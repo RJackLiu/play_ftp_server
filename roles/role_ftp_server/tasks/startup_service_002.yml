@@ -31,3 +31,9 @@
   loop:
     - "tcp 21"
     - "tcp 20"
+
+- name: "({{ ROLE_ID }} - 002.06) Set ftpd_full_access flag on and keep it persistent across reboots"
+  seboolean:
+    name: ftpd_full_access
+    state: yes
+    persistent: yes
