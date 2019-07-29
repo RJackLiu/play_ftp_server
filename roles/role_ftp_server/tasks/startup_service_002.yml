@@ -1,0 +1,33 @@
+- name: "({{ ROLE_ID }} - 002.01) Startup vsftpd service"
+  systemd:
+      state: restarted
+      daemon_reload: yes
+      name: vsftpd
+
+- name: "({{ ROLE_ID }} - 002.02) Stop firewalld service"
+  systemd:
+      state: stopped
+      enabled: yes
+      daemon_reload: yes
+      name: firewalld
+
+- name: "({{ ROLE_ID }} - 002.03) Add ftp module"
+  modprobe:
+      name: "{{ item }}"
+      state: present
+  loop:
+    - ip_nat_ftp
+    - ip_conntrack_ftp
+
+- name: "({{ ROLE_ID }} - 002.04) Reset iptables"
+  script: iptables.sh
+  args:
+    executable: /bin/bash
+
+- name: "({{ ROLE_ID }} - 002.05) Allow FTP service port in iptables"
+  script: ctl-iptables.sh -addport {{ item }}
+  args:
+    executable: /bin/bash
+  loop:
+    - "tcp 21"
+    - "tcp 20"

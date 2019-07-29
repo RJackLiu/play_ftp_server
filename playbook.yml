@@ -1,0 +1,6 @@
+---
+- hosts: all
+  gather_facts: no
+  become: yes
+  roles:
+    - role: role_ftp_server

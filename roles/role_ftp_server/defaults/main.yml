@@ -1,2 +1,3 @@
 ---
 # defaults file for role_ftp_server
+ROLE_ID: '0x03'

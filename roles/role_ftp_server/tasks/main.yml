@@ -1,2 +1,10 @@
 ---
 # tasks file for role_ftp_server
+- include_tasks: verify_vsftpd_config_001.yml
+  tags:
+    - install_vsftpd
+
+- include_tasks: startup_service_002.yml
+  tags:
+    - startup_service
+  

@@ -1,0 +1,14 @@
+- name: "({{ ROLE_ID }} - 001.01) Copy vsftpd configure template file"
+  template:
+      src: vsftpd.conf.j2
+      dest: /etc/vsftpd/vsftpd.conf
+      owner: root
+      group: root
+      mode: '0600'
+      backup: yes
+
+- name: "({{ ROLE_ID }} - 001.02) Create chroot_list file"
+  file:
+    path: /etc/vsftpd/chroot_list
+    state: touch
+
