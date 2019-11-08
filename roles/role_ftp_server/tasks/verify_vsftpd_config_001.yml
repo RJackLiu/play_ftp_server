@@ -14,8 +14,6 @@
       name: "{{ rhsm_repo_7 }}"
       state: enabled
       purge: true
-    when:
-    - ansible_distribution_major_version == '7'
     poll: 30
     async: 300
     tags: rh_repos
