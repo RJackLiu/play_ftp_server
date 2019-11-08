@@ -1,9 +1,9 @@
 ---
 # defaults file for role_ftp_server
 ROLE_ID: '0x03'
-rhsm_username: ""
-rhsm_password: ""
-rhsm_poolID: ""
+rhid: ''
+rhpass: ''
+rhPoolID: ''
 
 rhsm_repo_7:
 #- rhel-server-rhscl-7-rpms
