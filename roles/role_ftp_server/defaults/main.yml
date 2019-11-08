@@ -15,4 +15,4 @@ rhsm_repo_7:
 #- rhel-7-server-ansible-2-rpms
 
 yum_list:
-- vsftp
+- vsftpd
